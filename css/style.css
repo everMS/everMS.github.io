@@ -1,0 +1,659 @@
+/*region 页面搭建*/
+body{
+    overflow: hidden;
+    font-size: 16px;
+    color: #fff;
+}
+html,body,.page{
+    width: 100%;
+    height: 100%;
+}
+.page{
+    overflow: hidden;
+    position: relative;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+a:hover{
+    color: #eee;
+}
+img{
+    vertical-align: top;
+}
+.head{
+    width: 300px;
+    height: 120px;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    visibility: hidden;
+    z-index: 1;
+}
+.head a{
+    display: block;
+    width: 100px;
+    height: 34px;
+    border: 1px solid #fff;
+    border-radius: 34px;
+    text-align: center;
+    line-height: 34px;
+}
+footer{
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+nav{
+    width: 58px;
+    height: 210px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -105px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+nav span{
+    width: 14px;
+    height: 14px;
+    display: block;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 2;
+}
+span.active{
+    opacity: 1;
+}
+/*endregion*/
+/*region 第一屏*/
+.p1{
+    background: url("../images/page1_glow.png") no-repeat center top,
+    linear-gradient(0deg, #395ecb 0%, #3657be 35%, #242161 75%, #1a0531 100%);;
+    perspective: 800px;
+}
+.p1 header{
+    margin: 0 auto;
+    width: 500px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.p1 header a{
+    display: block;
+    width: 100px;
+    height: 34px;
+    border: 1px solid #fff;
+    border-radius: 34px;
+    text-align: center;
+    line-height: 34px;
+}
+.p1 header a:hover{
+    color: #000;
+    background-color: #eee;
+}
+.p1 footer{
+    width: 29px;
+    height: 31px;
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    bottom: 30px;
+    animation: go 1s infinite alternate;
+}
+@keyframes go {
+    0%{transform: translateY(-10px)}
+    100%{transform: translateY(10px)}
+}
+.p1 .main{
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -300px;
+}
+.p1 .main ul{
+    width: 580px;
+    height: 260px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -290px;
+    margin-top: -180px;
+    animation: p1move 3s infinite linear;
+    transform-style: preserve-3d;
+}
+@keyframes p1move {
+    0%{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
+    100%{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(360deg) rotateZ(0deg)}
+}
+.p1 .main li{
+    position: absolute;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+}
+.p1 .main li:nth-of-type(2){
+    transform: translateZ(60px);
+}
+.p1 .main li:nth-of-type(3){
+    transform: translateX(0) translateY(0) translateZ(-60px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(180deg) rotateZ(0deg)
+}
+.p1 .main li:nth-of-type(4){
+    transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(180deg) rotateZ(0deg)
+}
+.p1 .main li:nth-of-type(5){
+    transform: translateX(0) translateY(0) translateZ(60px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(180deg) rotateZ(0deg)
+}
+.p1 .round{
+    width: 680px;
+    height: 680px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -340px;
+    margin-top: -400px;
+    transform: rotateX(80deg) rotateY(-20deg)
+    scaleX(1.5) scaleY(1.5) scaleZ(1.5);
+    animation: roundGo 10s linear infinite ;
+}
+@keyframes roundGo {
+    from{transform: translateX(0) translateY(0) translateZ(60px)
+    scaleX(1.5) scaleY(1.5) scaleZ(1.5)
+    rotateX(80deg) rotateY(-20deg) rotateZ(0deg)}
+    to{transform: translateX(0) translateY(0) translateZ(60px)
+    scaleX(1.5) scaleY(1.5) scaleZ(1.5)
+    rotateX(80deg) rotateY(-20deg) rotateZ(360deg)}
+}
+/*endregion*/
+/*region 第二屏*/
+.p2{
+    background: linear-gradient(0deg, #41b93e 0%, #3b9e3c 35%, #274535 75%, #190530 100%);
+    perspective: 800px;
+}
+.p2 .glow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -197px;
+    margin-left: -120px;
+    transform: rotateY(0deg);
+}
+.p2 .linelow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -62px;
+    margin-left: -20px;
+    transform: rotateY(0deg);
+    animation: linelow 5s infinite alternate;
+}
+@keyframes linelow {
+    from{transform: rotateY(-70deg)}
+    to{transform: rotateY(50deg)}
+}
+.p2 .bgline{
+    display: block;
+    width: 200%;
+    height: 1px;
+    background-color: #85de0f;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -1px;
+    transform: rotateY(-30deg);
+    margin-left: -100%;
+}
+.p2 .main{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -175px;
+    margin-left: -175px;
+    transition: transform 3s;
+    transform: scale(1);
+}
+.p2 .main ul{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-style: preserve-3d;
+    transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(60deg) rotateZ(0deg)
+}
+.p2 .main li{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.p2 .main ul li:nth-of-type(1){
+    transform: translateZ(180px);
+}
+.p2 .main ul li:nth-of-type(2){
+    transform: translateZ(90px);
+}
+.p2 .main ul li:nth-of-type(3){
+    transform: translateZ(0px);
+}
+.p2 .main ul li:nth-of-type(4){
+    transform: translateZ(-90px);
+}
+.p2 .main ul li img{
+    animation: imggo 2s linear infinite;
+}
+@keyframes imggo {
+    0%{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
+    100%{
+        transform: translateX(0) translateY(0) translateZ(0)
+        scaleX(1) scaleY(1) scaleZ(1)
+        rotateX(0deg) rotateY(0deg) rotateZ(360deg)
+    }
+}
+.p2 .title {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -47px;
+    transition: all 3s;
+}
+.p2.active .title,.p2.active .main{
+    transform: translateX(0) translateY(0) translateZ(60px)
+    scaleX(5) scaleY(5) scaleZ(5)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+/*endregion*/
+/*region 第三屏*/
+.p3{
+    background: url("../images/page3_logo.png") no-repeat center center,
+    url("../images/page3_glow.png") no-repeat center center,
+    linear-gradient(0deg, #395ecb 0%, #3657be 35%, #242161 75%, #1a0531 100%);
+    perspective: 800px;
+}
+.p3 .main{
+    width: 680px;
+    height: 680px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -340px;
+    margin-left: -340px;
+    transition: all 3s;
+    transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p3 ul{
+    width: 680px;
+    height: 680px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: moveUl 10s linear infinite;
+}
+@keyframes moveUl {
+    from{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
+    to{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(360deg)}
+}
+.p3 li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid blue;
+    border-radius: 50%;
+}
+.p3 li:nth-of-type(1){
+    animation: moveLi1 1s linear infinite;
+}
+@keyframes moveLi1 {
+    from{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(70deg) rotateY(0deg) rotateZ(0deg)}
+    to{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(70deg) rotateY(0deg) rotateZ(360deg)}
+}
+.p3 li:nth-of-type(2){
+    animation: moveLi2 2s linear infinite;
+}
+@keyframes moveLi2 {
+    from{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(70deg) rotateY(60deg) rotateZ(0deg)}
+    to{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(70deg) rotateY(60deg) rotateZ(360deg)}
+}
+.p3 li:nth-of-type(3){
+    animation: moveLi3 3s linear infinite;
+}
+@keyframes moveLi3 {
+    from{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(70deg) rotateY(-60deg) rotateZ(0deg)}
+    to{transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(70deg) rotateY(-60deg) rotateZ(360deg)}
+}
+.p3 .title{
+    position: absolute;
+    width: 450px;
+    height: 149px;
+    top: 38%;
+    right: 10%;
+    margin-top: -75px;
+    transition: all 2s;
+    transform: translateX(0) translateY(0) translateZ(0px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(-10deg) rotateY(-30deg) rotateZ(-15deg)
+}
+.p3.active .main{
+    transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(5) scaleY(5) scaleZ(5)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p3.active .title{
+    transform: translateX(500px) translateY(0) translateZ(0px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(-10deg) rotateY(-30deg) rotateZ(-15deg)
+}
+/*endregion*/
+/*region 第四屏*/
+.p4{
+    background: url("../images/page4_glow.png") no-repeat center 200px,
+    linear-gradient(0deg, #ff9f42 0%, #ed923d 35%, #6d3816 75%, #2e0b04 100%);
+    perspective: 800px;
+}
+.p4 .lineglow{
+    width: 100%;
+    height: 225px;
+    position: absolute;
+    left: 0;
+    top: 60%;
+    border: 1px solid #fff;
+}
+.p4 .lineglow span{
+    width: 365px;
+    height: 123px;
+    position: absolute;
+}
+.p4 .lineglow span:nth-of-type(1){
+    top: -62px;
+    animation: lineglow 1s linear infinite;
+}
+.p4 .lineglow span:nth-of-type(2){
+    bottom: -62px;
+    animation: lineglow 1.5s linear infinite;
+}
+@keyframes lineglow{
+    from{left: -365px;}
+    to{left: 5000px}
+}
+.p4 .main{
+    width: 414px;
+    height: 414px;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    margin-top: -180px;
+    margin-left: -207px;
+    transform: translateX(0) translateY(0) translateZ(0px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transition: all 2s;
+}
+.p4 ul{
+    transform-style: preserve-3d;
+    transform: translateX(0) translateY(0) translateZ(10px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(45deg) rotateY(0deg) rotateZ(0deg)
+}
+.p4 ul,.p4 li{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.p4 ul li:nth-of-type(1){
+    transform: translateX(0) translateY(0) translateZ(60px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p4 ul li:nth-of-type(2){
+    transform: translateX(0) translateY(0) translateZ(80px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p4 ul li:nth-of-type(3){
+    transform: translateX(0) translateY(0) translateZ(0px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p4 ul li:nth-of-type(4){
+    transform: translateX(0) translateY(0) translateZ(-10px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p4 ul li:nth-of-type(5){
+    transform: translateX(0) translateY(0) translateZ(100px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p4 ul li img{
+    animation: moveImg 2s linear infinite;
+}
+@keyframes moveImg {
+    from{transform: translateX(0) translateY(0) translateZ(0px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)}
+    to{transform: translateX(0) translateY(0) translateZ(0px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(360deg)}
+}
+.p4 .title{
+    position: absolute;
+    top: 45%;
+    right: 250px;
+    transform: translateX(0) translateY(0) translateZ(0px)
+    scaleX(1.2) scaleY(1.2) scaleZ(1.2)
+    rotateX(45deg) rotateY(0deg) rotateZ(0deg);
+    transition: all 2s;
+}
+.p4 .text{
+    position: absolute;
+    top: 45%;
+    left: 250px;
+    transform: translateX(0) translateY(0) translateZ(0px)
+    scaleX(1.2) scaleY(1.2) scaleZ(1.2)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    transition: all 2s;
+}
+.p4.active .main{
+    transform: translateX(0) translateY(0) translateZ(0px)
+    scaleX(5) scaleY(5) scaleZ(5)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p4.active .title{
+    transform: translateX(1000px) translateY(0) translateZ(0px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p4.active .text{
+    transform: translateX(-1000px) translateY(0) translateZ(0px)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+/*endregion*/
+/*region 第五屏*/
+.p5{
+    background: url("../images/page5_glow.png") no-repeat center -300px,
+    linear-gradient(0deg, #d74d53 0%, #c44655 35%, #4c184c 75%, #110145 100%);
+}
+.p5 .main{
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+}
+.p5 .main ul{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.p5 .main li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/page5_bubble_glow.png") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    /*水平对齐*/
+    justify-content: center;
+    /*垂直对齐*/
+    align-items: center;
+    transition: all .8s;
+}
+.p5 .main li:nth-of-type(1){
+    width: 305px;
+    height: 305px;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+}
+.p5 .main li:nth-of-type(2){
+    width: 200px;
+    height: 200px;
+    left: 35%;
+    top: 35%;
+    margin-left: -150px;
+    margin-top: -150px;
+}
+.p5 .main li:nth-of-type(3){
+    width: 250px;
+    height: 250px;
+    left: 25%;
+    top: 90%;
+    margin-left: -150px;
+    margin-top: -150px;
+}
+.p5 .main li:nth-of-type(4){
+    width: 180px;
+    height: 180px;
+    left: 95%;
+    top: 90%;
+    margin-left: -150px;
+    margin-top: -150px;
+}
+.p5 .main li:nth-of-type(5){
+    width: 120px;
+    height: 120px;
+    left: 75%;
+    top: 45%;
+    margin-top: -150px;
+}
+.p5 .main li:nth-of-type(6){
+    width: 90px;
+    height: 90px;
+    left: 90%;
+    top: 55%;
+    margin-top: -150px;
+}
+.p5 .title{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    margin-top: -75px;
+    transform-origin: right center;
+    transition: all 2s;
+    transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p5 .text{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    margin-top: -20px;
+    transform-origin: right center;
+    transition: all 5s;
+    transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p5.active .title,.p5.active .text{
+    transform: translateX(0) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(90deg) rotateZ(0deg)
+}
+.p5.active .main li:nth-of-type(1){
+    transform: translateX(-1000px) translateY(0) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p5.active .main li:nth-of-type(2){
+    transform: translateX(-1000px) translateY(-1000px) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p5.active .main li:nth-of-type(3){
+    transform: translateX(-1000px) translateY(4000px) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p5.active .main li:nth-of-type(4){
+    transform: translateX(1000px) translateY(900px) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p5.active .main li:nth-of-type(5){
+    transform: translateX(1000px) translateY(-1000px) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+.p5.active .main li:nth-of-type(6){
+    transform: translateX(1000px) translateY(-300px) translateZ(0)
+    scaleX(1) scaleY(1) scaleZ(1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+}
+/*endregion*/
